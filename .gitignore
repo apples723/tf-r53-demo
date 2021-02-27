@@ -1,0 +1,23 @@
+*.pem
+# Local .terraform directories
+**/.terraform/*
+**/local/*
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*terraform.log
+# Crash log files
+crash.log
+*.DS_Store
+# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
+# .tfvars files are managed as part of configuration and so should be included in
+# version control.
+#
+# example.tfvars
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
