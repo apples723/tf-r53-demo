@@ -12,7 +12,7 @@ resource "aws_instance" "web01"{
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
   key_name        = "web01"
-  security_groups = [data.terraform_remote_state.vpc.outputs.http_ssh_sg]
+  vpc_security_group_ids = [data.terraform_remote_state.vpc.outputs.http_ssh_sg]
   subnet_id = data.terraform_remote_state.vpc.outputs.public_subnet[0]
   provisioner "remote-exec" {
     inline = [
@@ -27,5 +27,8 @@ resource "aws_instance" "web01"{
       host        = self.public_ip
     }
   }
-
 }
+output "eip" {
+  value = aws_instance.web01.public_ip
+}
+
