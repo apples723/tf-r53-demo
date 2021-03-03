@@ -7,10 +7,10 @@ resource "aws_route53_record" "ue1web01" {
   records = [data.terraform_remote_state.web01.outputs.eip] 
 }
 #creates a A record for web02.demo.infrastructure.2u.com
-resource "aws_route53_record" "ue1web02" {
+resource "aws_route53_record" "ue1web03" {
   zone_id = aws_route53_zone.delegated.zone_id #zone id of demo.infrastructure.2u.com
-  name    = "web02.demo.infrastructure.2u.com"
+  name    = "web03.demo.infrastructure.2u.com"
   type    = "A"
   ttl     = "30"
-  records = [data.terraform_remote_state.web02.outputs.eip] 
+  records = [data.terraform_remote_state.web03.outputs.eip] 
 }
