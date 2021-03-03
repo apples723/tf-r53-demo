@@ -9,6 +9,6 @@ terraform {
   backend "s3" {
       bucket = "2u-terraform"
       region = "us-east-1"
-      key = "it/sandbox/r53_demo/web02.tfstate"
+      key = "it/sandbox/r53_demo/web03.tfstate"
   }
 }

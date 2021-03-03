@@ -8,7 +8,7 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-resource "aws_instance" "web02"{
+resource "aws_instance" "web03"{
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
   key_name        = "web01"
@@ -29,6 +29,6 @@ resource "aws_instance" "web02"{
   }
 }
 output "eip" {
-  value = aws_instance.web02.public_ip
+  value = aws_instance.web03.public_ip
 }
 
