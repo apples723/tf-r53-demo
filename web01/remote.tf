@@ -1,3 +1,4 @@
+#creates resource that contains the "output" from the VPC module
 data "terraform_remote_state" "vpc" {
   backend = "s3"
 
