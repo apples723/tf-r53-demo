@@ -1,3 +1,5 @@
+#creates a vpc for the purpose of this demo
+#only has 1 public subnet
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.77"
@@ -14,7 +16,8 @@ module "vpc" {
       "Enviornment" = "Sandbox"
   }
 }
-
+#security group for webservers
+#allows inbound port 22 and 80
 resource "aws_security_group" "webserver" {
   name        = "ssh_http"
   description = "Allow http and ssh inbound traffic"
@@ -26,8 +29,8 @@ ingress {
     cidr_blocks = ["0.0.0.0/0"]
 }
   ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -39,6 +42,7 @@ ingress {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 }
+#creates an output that can be refrenced from a seperate module 
 output "vpc_id" {
     value = module.vpc.vpc_id
   
